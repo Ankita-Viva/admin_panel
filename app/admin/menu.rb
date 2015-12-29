@@ -19,7 +19,8 @@ ActiveAdmin.register Menu do
 	  	f.input :url
 	    # f.collection_select(:parent_menu, :menu_id, Menu.all, :id, :title, :prompt => true)
 	    # f.input :parent_menu, :collection => Menu.all.map{ |menu| [menu.title, menu.id] }
-	    f.input :location
+	    f.label :location
+	    f.select(:location, Menu::MENU_LOCATIONS, :prompt => true)
 	  end
 	  f.actions
 	end
