@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  location_id: 1
+  location: MyString
 
 two:
-  title: MyString
-  location_id: 1
+  location: MyString

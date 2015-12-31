@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
   # menu false
+  menu :label => "Users"
   permit_params :email, :password, :password_confirmation
 
   index do

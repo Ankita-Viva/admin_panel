@@ -14,6 +14,18 @@ ActiveAdmin.register News do
 #   permitted
 # end
 
+	filter :title
+  filter :created_at
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :created_at
+    column :updated_at
+    actions
+  end
+
 	form html: { multipart: true } do |f|
 	  f.inputs "News Details" do
 	    f.input :title
@@ -22,9 +34,5 @@ ActiveAdmin.register News do
 	  end
 	  f.actions
 	end
-
-	filter :title
-	filter :description
-	filter :created_at
 
 end

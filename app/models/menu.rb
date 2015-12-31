@@ -1,3 +1,3 @@
 class Menu < ActiveRecord::Base
-	 MENU_LOCATIONS = ["Header", "Footer", "Sidebar"]
+	belongs_to :location
 end

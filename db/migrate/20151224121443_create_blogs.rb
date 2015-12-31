@@ -5,7 +5,7 @@ class CreateBlogs < ActiveRecord::Migration
       t.string :description
       t.integer :admin_user_id
       t.string :image
-      t.string :keywords
+      t.string :meta_keywords
       t.string :meta_title
       t.string :meta_description
 
