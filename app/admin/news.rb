@@ -29,7 +29,7 @@ ActiveAdmin.register News do
 	form html: { multipart: true } do |f|
 	  f.inputs "News Details" do
 	    f.input :title
-	    f.input :description
+	    f.input :description, :as => :ckeditor
 	    f.input :image, as: :file
 	  end
 	  f.actions

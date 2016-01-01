@@ -24,8 +24,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'ckeditor'
 gem 'devise'
 gem 'carrierwave'
+gem 'mini_magick'
 # gem "mini_magic"
 # gem 'RMagick'
 

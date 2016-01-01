@@ -24,7 +24,7 @@ ActiveAdmin.register Blog do
 	form html: { multipart: true } do |f|
 	  f.inputs "Blog Details" do
 	    f.input :title
-	    f.input :description
+	    f.input :description, :as => :ckeditor
 	    f.input :image, as: :file
 	    f.input :meta_keywords
 	    f.input :meta_title

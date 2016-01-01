@@ -18,6 +18,18 @@ ActiveAdmin.register Page do
   filter :created_at
   filter :updated_at
 
+  form html: { multipart: true } do |f|
+    f.inputs "Blog Details" do
+      f.input :title
+      f.input :content, :as => :ckeditor
+      f.input :page_title
+      f.input :url
+      f.input :meta_description
+      f.input :published
+    end
+    f.actions
+  end
+
   index do
     selectable_column
     id_column
