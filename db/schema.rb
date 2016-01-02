@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101112337) do
+ActiveRecord::Schema.define(version: 20160102090231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20160101112337) do
     t.string   "meta_description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.text     "excerpt"
+    t.string   "category"
+    t.string   "meta_tags"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -101,19 +104,27 @@ ActiveRecord::Schema.define(version: 20160101112337) do
     t.string   "title"
     t.string   "description"
     t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "excerpt"
+    t.string   "category"
+    t.string   "meta_keywords"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_tags"
   end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "page_title"
+    t.string   "meta_title"
     t.string   "url"
     t.string   "meta_description"
     t.boolean  "published"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "meta_keywords"
+    t.string   "meta_tags"
   end
 
 end

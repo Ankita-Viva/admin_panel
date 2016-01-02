@@ -39,4 +39,8 @@ ActiveAdmin.register Menu do
 	  f.actions
 	end
 
+  action_item :view_site do
+    link_to "Add Menu Items", new_admin_menu_item_path
+  end
+
 end

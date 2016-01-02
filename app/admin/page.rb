@@ -3,7 +3,7 @@ ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-	permit_params :title, :content, :page_title, :url, :meta_description, :published
+	permit_params :title, :content, :url, :meta_title, :meta_keywords, :meta_tags, :meta_description, :published
 #
 # or
 #
@@ -22,9 +22,11 @@ ActiveAdmin.register Page do
     f.inputs "Blog Details" do
       f.input :title
       f.input :content, :as => :ckeditor
-      f.input :page_title
       f.input :url
-      f.input :meta_description
+      f.input :meta_title
+      f.input :meta_keywords
+      f.input :meta_tags
+      f.input :meta_description, :as => :ckeditor
       f.input :published
     end
     f.actions
@@ -39,6 +41,5 @@ ActiveAdmin.register Page do
     column :updated_at
     actions
   end
-
 
 end

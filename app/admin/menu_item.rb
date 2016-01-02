@@ -1,10 +1,11 @@
-ActiveAdmin.register News do
+ActiveAdmin.register MenuItem do
+	menu false
+	permit_params :title, :menu_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 # permit_params :list, :of, :attributes, :on, :model
-	permit_params :title, :description, :excerpt, :category, :image, :meta_keywords, :meta_title, :meta_tags, :meta_description
 #
 # or
 #
@@ -15,6 +16,7 @@ ActiveAdmin.register News do
 # end
 
 	filter :title
+  # filter :location
   filter :created_at
 
   index do
@@ -26,19 +28,14 @@ ActiveAdmin.register News do
     actions
   end
 
-	form html: { multipart: true } do |f|
-	  f.inputs "News Details" do
-	    f.input :title
-	    f.input :description, :as => :ckeditor
-	    f.input :excerpt, :as => :ckeditor
-	    f.input :category
-	    f.input :image, as: :file
-	    f.input :meta_keywords
-	    f.input :meta_title
-	    f.input :meta_tags
-	    f.input :meta_description, :as => :ckeditor
+	form do |f|
+	  f.inputs "Menu Item Details" do
+	  	f.input :title
+	  	f.label :menu
+	    f.collection_select(:menu_id, Menu.all, :id, :title, :prompt => true)
 	  end
 	  f.actions
 	end
+
 
 end
