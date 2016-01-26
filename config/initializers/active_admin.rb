@@ -42,6 +42,32 @@ ActiveAdmin.setup do |config|
   #   config.namespace :admin do |admin|
   #     admin.site_title = "Custom Admin Title"
   #   end
+
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      # menu.add label: "The Application", url: "/", priority: 0
+
+      menu.add label: "New", priority: 2 do |sites|
+        sites.add label: "Blog",   url: "/admin/blogs/new"#, html_options: { target: :blank }
+        sites.add label: "Page", url: "/admin/pages/new"
+        sites.add label: "News",   url: "/admin/news/new"
+        sites.add label: "Menu",   url: "/admin/menus/new"
+        sites.add label: "Menu Items",   url: "/admin/menu_items/new"
+        sites.add label: "Blog Category", url: "/admin/categories/new"
+        sites.add label: "News Category", url: "/admin/news_categories/new"
+      end
+      
+      menu.add label: "Add Blog Category", parent: "Blogs", url: "/admin/categories/new"
+      menu.add label: "Add Blog Post", parent: "Blogs", url: "/admin/blogs/new"
+      menu.add label: "Add Page", parent: "Pages", url: "/admin/pages/new"
+      menu.add label: "Add Menu", parent: "Menus", url: "/admin/menus/new"
+      menu.add label: "Add News", parent: "News", url: "/admin/news/new"
+      menu.add label: "Add Menu Items", parent: "Menus", url: "/admin/menu_items/new"
+      menu.add label: "Add User", parent: "Admin Users", url: "/admin/admin_users/new"
+      menu.add label: "Add News Category", parent: "News", url: "/admin/news_categories/new"
+    end
+  end
+
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.

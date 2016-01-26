@@ -28,6 +28,9 @@ gem 'ckeditor'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'will_paginate'
+gem 'friendly_id'
+gem 'puma'
 # gem "mini_magic"
 # gem 'RMagick'
 

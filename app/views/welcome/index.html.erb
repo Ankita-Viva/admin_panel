@@ -1,2 +1,79 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+<section class="title">
+<div class="container">
+<div class="row-fluid">
+<div class="span6">
+<h1>Home</h1>
+</div>
+
+<div class="span6">
+<ul class="breadcrumb pull-right">
+	<li><a href="/">Home</a> <span class="divider">/</span></li>
+	<li class="active">Home</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- / .title -->
+
+<section class="container main" id="about-us">
+<div class="row-fluid">
+<div class="span8">
+<div class="blog">
+	<%= Page.where(:title => 'Home').first.content.html_safe %>
+</div>
+</div>
+
+<aside class="span4">
+<div class="widget search">
+<form><input class="input-block-level" placeholder="Search" type="text" />&nbsp;</form>
+</div>
+<!-- End Category Widget -->
+<%= render "layouts/popularposts" %>
+        <!-- End Popular Posts -->        
+
+        <%= render "layouts/blogcategories" %>
+        <!-- End Category Widget -->
+<div class="widget">
+	<% @menus = Menu.where(:location_id => 9).first %>
+	<h3><%= @menus.title %></h3>
+
+	
+  <div>
+      
+      <ul class="arrow">
+        <% @menus.menu_items.order(order: :asc).each do |menu| %>
+          <%= nav_link menu.title, menu.link %>
+        <% end %>
+      </ul>
+  </div>
+
+<!-- <ul class="tag-cloud unstyled">
+	<li><a class="btn btn-mini btn-primary" href="#">CSS3</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">HTML5</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">WordPress</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">Joomla</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">Drupal</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">Bootstrap</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">jQuery</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">Tutorial</a></li>
+	<li><a class="btn btn-mini btn-primary" href="#">Update</a></li>
+</ul> -->
+</div>
+<!-- End Tag Cloud Widget -->
+
+<div class="widget">
+<h3>Archive</h3>
+
+<ul class="archive arrow">
+	<li><a href="#">May 2013</a></li>
+	<li><a href="#">April 2013</a></li>
+	<li><a href="#">March 2013</a></li>
+	<li><a href="#">February 2013</a></li>
+</ul>
+</div>
+<!-- End Archive Widget --></aside>
+</div>
+</section>

@@ -1,0 +1,44 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%#= link_to %>
+      <a id="logo" class="pull-left" href="/"></a>
+      <div class="nav-collapse collapse pull-right">
+        <ul class="nav">
+          <% Menu.where(:location_id => 7).first.menu_items.order(order: :asc).each do |menu| %>
+            <li><%= nav_link menu.title, menu.link %></li>
+          <% end %>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="career.html">Career</a></li>
+                <li><a href="blog-item.html">Blog Single</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="404.html">404</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li class="divider"></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+        </li> -->
+          <li><%#= nav_link "Home", root_path %></li>
+          <li><%#= nav_link "Blog", welcome_blogs_path %></li>
+          <li><%#= nav_link "News", welcome_news_path %></li>
+          <%# Page.where(:published => true).each do |page| %>
+            <li><%#= nav_link page.title, page_with_title_path(page) %></li>
+          <%# end %>
+        </ul>        
+      </div>
+        </div>
+    </div>
+</header>
+
+<!-- Menu.where(:location_id => 7).first.menu_items
+ -->

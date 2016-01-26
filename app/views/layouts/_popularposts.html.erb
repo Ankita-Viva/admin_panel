@@ -1,0 +1,20 @@
+<div class="widget widget-popular">
+  <h3>Latest Posts</h3>
+  <div class="widget-blog-items">
+    <% @posts.each do |post| %>
+      <div class="widget-blog-item media">
+        <div class="pull-left">
+          <div class="date">
+            <span class="month"><%= post.created_at.strftime("%b") %></span>
+            <span class="day"><%= post.created_at.strftime("%d") %></span>
+          </div>
+        </div>
+        <div class="media-body">
+          <h5>
+          <%= link_to post.title, blog_with_title_path(post) %>
+          </h5>
+        </div>
+      </div>
+    <% end %>
+  </div>                        
+</div>

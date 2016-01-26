@@ -13,20 +13,24 @@ ActiveAdmin.register Menu do
 #   permitted
 # end
 
-	def name
-    location
-  end
-
 	filter :title
   # filter :location
   filter :created_at
 
   index do
     selectable_column
-    id_column
+    column :id
     column :title
-    column :created_at
+    column :location do |m|
+      loc = Location.find(m.location_id)
+      loc.location
+    end
+    # column :created_at
     column :updated_at
+    column "Menu Items" do |site|
+      link_to "Menu Items (#{site.menu_items.count})", :controller => "menu_items", :action => "index"#, 'q[menu_id_eq]' => "#{menu.id}"
+      # link_to "Menu Items (#{site.menu_items.count})", :controller => "menu_items", :action => "index", 'q[menu_id_eq]' => "#{menu.id}".html_safe
+    end
     actions
   end
 

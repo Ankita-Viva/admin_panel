@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102090231) do
+ActiveRecord::Schema.define(version: 20160122052759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,12 +57,32 @@ ActiveRecord::Schema.define(version: 20160102090231) do
     t.string   "meta_keywords"
     t.string   "meta_title"
     t.string   "meta_description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.text     "excerpt"
-    t.string   "category"
     t.string   "meta_tags"
+    t.boolean  "published"
+    t.integer  "category_id",      default: [],              array: true
+    t.string   "slug"
   end
+
+  add_index "blogs", ["slug"], name: "index_blogs_on_slug", using: :btree
+
+  create_table "blogs_categories", force: :cascade do |t|
+    t.integer "blog_id"
+    t.integer "category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "description"
+    t.integer  "parent_id",   default: 0
+    t.string   "slug"
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -89,8 +109,11 @@ ActiveRecord::Schema.define(version: 20160102090231) do
   create_table "menu_items", force: :cascade do |t|
     t.string   "title"
     t.integer  "menu_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "link"
+    t.integer  "order"
+    t.integer  "menu_item_id", default: 0
   end
 
   create_table "menus", force: :cascade do |t|
@@ -104,27 +127,41 @@ ActiveRecord::Schema.define(version: 20160102090231) do
     t.string   "title"
     t.string   "description"
     t.string   "image"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.text     "excerpt"
-    t.string   "category"
     t.string   "meta_keywords"
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "meta_tags"
+    t.integer  "category_id",      default: [],              array: true
+    t.boolean  "published"
+    t.integer  "admin_user_id"
+    t.string   "slug"
+  end
+
+  add_index "news", ["slug"], name: "index_news_on_slug", using: :btree
+
+  create_table "news_categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "parent_id",   default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "meta_title"
-    t.string   "url"
+    t.string   "slug"
     t.string   "meta_description"
     t.boolean  "published"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "meta_keywords"
     t.string   "meta_tags"
+    t.integer  "parent_id",        default: 0
   end
 
 end

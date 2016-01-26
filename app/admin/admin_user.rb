@@ -1,11 +1,11 @@
-ActiveAdmin.register AdminUser do
+ ActiveAdmin.register AdminUser do
   # menu false
   menu :label => "Users"
   permit_params :email, :password, :password_confirmation
 
   index do
     selectable_column
-    id_column
+    column :id
     column :email
     column :current_sign_in_at
     column :sign_in_count
