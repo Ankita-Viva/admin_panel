@@ -1,156 +1,155 @@
-
 <body>
-  <section class="title">
-    <div class="container">
-      <div class="row-fluid">
-        <div class="span6">
-           <h1>Category Blogs</h1>
-        </div>
-        <div class="span6">
-          <ul class="breadcrumb pull-right">
-            <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li class="active">Category Blogs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- / .title -->         
+	<section class="title">
+		<div class="container">
+			<div class="row-fluid">
+				<div class="span6">
+					 <h1>Category Blogs</h1>
+				</div>
+				<div class="span6">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a> <span class="divider">/</span></li>
+						<li class="active">Category Blogs</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+		<!-- / .title -->         
 
-    <section id="about-us" class="container main">
-        <div class="row-fluid">
-            <div class="span8">
-                <div class="blog">
+		<section id="about-us" class="container main">
+				<div class="row-fluid">
+						<div class="span8">
+								<div class="blog">
 
-                  <% @category_posts.blogs.each do |blog| %>
+									<% @category_posts.blogs.each do |blog| %>
 
-                    <div class="blog-item well">
-                    		<h2><%#= link_to blog.title, welcome_blog_item_path(blog.id) %>
-                    		<%= link_to blog.title, blog_with_title_path(blog) %>
-                    		</h2>
-                        <!-- <a href="#"><h2><%= blog.title %></h2></a> -->
-                        <div class="blog-meta clearfix">
-                            <p class="pull-left">
-                          <i class="icon-user"></i> by <a href="#"><%= AdminUser.find(blog.admin_user_id).email %></a> | <i class="icon-folder-close"></i> Category <a href="#">Bootstrap </a> | <i class="icon-calendar"> </i> <%= blog.created_at.strftime("%b %dth, %Y") %>
-                          <p class="pull-right"><i class="icon-comment pull"></i> <a href="#comments">3 Comments</a></p>
-                      </div>
-                      <p>
-                        <% if blog.image.present? %>
-                          <%= image_tag(blog.image,:width => "100%", :height => "auto") %>
-                        <% end %>        
-                      </p>
-                      
-                      <p><%= blog.excerpt.html_safe %></p>
-                      <%= link_to 'Read More', blog_with_title_path(blog) %>
+										<div class="blog-item well">
+												<h2><%#= link_to blog.title, welcome_blog_item_path(blog.id) %>
+												<%= link_to blog.title, blog_with_title_path(blog) %>
+												</h2>
+												<!-- <a href="#"><h2><%= blog.title %></h2></a> -->
+												<div class="blog-meta clearfix">
+														<p class="pull-left">
+													<i class="icon-user"></i> by <a href="#"><%= AdminUser.find(blog.admin_user_id).email %></a> | <i class="icon-folder-close"></i> Category <a href="#">Bootstrap </a> | <i class="icon-calendar"> </i> <%= blog.created_at.strftime("%b %dth, %Y") %>
+													<p class="pull-right"><i class="icon-comment pull"></i> <a href="#comments">3 Comments</a></p>
+											</div>
+											<p>
+												<% if blog.image.present? %>
+													<%= image_tag(blog.image,:width => "100%", :height => "auto") %>
+												<% end %>        
+											</p>
+											
+											<p><%= blog.excerpt.html_safe %></p>
+											<%= link_to 'Read More', blog_with_title_path(blog) %>
 
-                      <%#= link_to 'Read More', welcome_blog_item_path(:blog => blog.id), :class => 'read' %> <i class="icon-angle-right"></i>
-                      <!-- <a class="btn btn-link" href="#">Read More</a> -->
+											<%#= link_to 'Read More', welcome_blog_item_path(:blog => blog.id), :class => 'read' %> <i class="icon-angle-right"></i>
+											<!-- <a class="btn btn-link" href="#">Read More</a> -->
 
-                      <p>
-                      	<%#= blog.categories %>
-                      </p>
+											<p>
+												<%#= blog.categories %>
+											</p>
 
-                  </div>
-                  <% end %>
+									</div>
+									<% end %>
 									
 
-                  <!-- End Blog Item -->
-              <div class="gap"></div>
+									<!-- End Blog Item -->
+							<div class="gap"></div>
 
-              <!-- Paginationa -->
-              <div class="pagination">
-              	<%#= will_paginate @category_posts %>
-                <!-- <ul>
-                    <li><a href="#"><i class="icon-angle-left"></i></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#"><i class="icon-angle-right"></i></a></li>
-                </ul> -->
-            </div>
+							<!-- Paginationa -->
+							<div class="pagination">
+								<%#= will_paginate @category_posts %>
+								<!-- <ul>
+										<li><a href="#"><i class="icon-angle-left"></i></a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#"><i class="icon-angle-right"></i></a></li>
+								</ul> -->
+						</div>
 
 
-        </div>
-    </div>
-    <aside class="span4">
-        <div class="widget search">
-            <form>
-                <input type="text" class="input-block-level" placeholder="Search">
-            </form>
-        </div>
-        <!-- /.search -->
+				</div>
+		</div>
+		<aside class="span4">
+				<div class="widget search">
+						<form>
+								<input type="text" class="input-block-level" placeholder="Search">
+						</form>
+				</div>
+				<!-- /.search -->
 
-        <!-- <div class="widget ads">
-            <div class="row-fluid">
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad1.png" alt=""></a>
-                </div>
+				<!-- <div class="widget ads">
+						<div class="row-fluid">
+								<div class="span6">
+										<a href="#"><img src="images/ads/ad1.png" alt=""></a>
+								</div>
 
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad2.png" alt=""></a>
-                </div>
-            </div>
-            <p> </p>
-            <div class="row-fluid">
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad3.png" alt=""></a>
-                </div>
+								<div class="span6">
+										<a href="#"><img src="images/ads/ad2.png" alt=""></a>
+								</div>
+						</div>
+						<p> </p>
+						<div class="row-fluid">
+								<div class="span6">
+										<a href="#"><img src="images/ads/ad3.png" alt=""></a>
+								</div>
 
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad4.png" alt=""></a>
-                </div>
-            </div>
-        </div> -->
-        <!-- /.ads -->
+								<div class="span6">
+										<a href="#"><img src="images/ads/ad4.png" alt=""></a>
+								</div>
+						</div>
+				</div> -->
+				<!-- /.ads -->
 
-        <%= render "layouts/popularposts" %>
-        <!-- End Popular Posts -->        
+				<%= render "layouts/popularposts" %>
+				<!-- End Popular Posts -->        
 
-        <%= render "layouts/blogcategories" %>
-        <!-- End Category Widget -->
+				<%= render "layouts/blogcategories" %>
+				<!-- End Category Widget -->
 
-        <div class="widget">
-          <% @menus = Menu.where(:location_id => 9).first %>
-          <h3><%= @menus.title %></h3>
+				<div class="widget">
+					<% @menus = Menu.where(:location_id => 9).first %>
+					<h3><%= @menus.title %></h3>
 
-          
-          <div>
-              
-              <ul class="arrow">
-                <% @menus.menu_items.order(order: :asc).each do |menu| %>
-                  <%= nav_link menu.title, menu.link %>
-                <% end %>
-              </ul>
-          </div>
-            <!-- <h3>Tag Cloud</h3>
-            <ul class="tag-cloud unstyled">
-                <li><a class="btn btn-mini btn-primary" href="#">CSS3</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">HTML5</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">WordPress</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">Joomla</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">Drupal</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">Bootstrap</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">jQuery</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">Tutorial</a></li>
-                <li><a class="btn btn-mini btn-primary" href="#">Update</a></li>
-            </ul> -->
-        </div> 
-        <!-- End Tag Cloud Widget -->
+					
+					<div>
+							
+							<ul class="arrow">
+								<% @menus.menu_items.order(order: :asc).each do |menu| %>
+									<%= nav_link menu.title, menu.link %>
+								<% end %>
+							</ul>
+					</div>
+						<!-- <h3>Tag Cloud</h3>
+						<ul class="tag-cloud unstyled">
+								<li><a class="btn btn-mini btn-primary" href="#">CSS3</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">HTML5</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">WordPress</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">Joomla</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">Drupal</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">Bootstrap</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">jQuery</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">Tutorial</a></li>
+								<li><a class="btn btn-mini btn-primary" href="#">Update</a></li>
+						</ul> -->
+				</div> 
+				<!-- End Tag Cloud Widget -->
 
-        <div class="widget">
-            <h3>Archive</h3>
-            <ul class="archive arrow">
-                <li><a href="#">May 2013</a></li>
-                <li><a href="#">April 2013</a></li>
-                <li><a href="#">March 2013</a></li>
-                <li><a href="#">February 2013</a></li>
-            </ul>
-        </div> 
-        <!-- End Archive Widget -->   
+				<div class="widget">
+						<h3>Archive</h3>
+						<ul class="archive arrow">
+								<li><a href="#">May 2013</a></li>
+								<li><a href="#">April 2013</a></li>
+								<li><a href="#">March 2013</a></li>
+								<li><a href="#">February 2013</a></li>
+						</ul>
+				</div> 
+				<!-- End Archive Widget -->   
 
-    </aside>
+		</aside>
 </div>
 
 </section>
