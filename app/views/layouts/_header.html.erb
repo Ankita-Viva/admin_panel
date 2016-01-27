@@ -10,7 +10,7 @@
       <a id="logo" class="pull-left" href="/"></a>
       <div class="nav-collapse collapse pull-right">
         <ul class="nav">
-          <% Menu.where(:location_id => 7).first.menu_items.order(order: :asc).each do |menu| %>
+          <% Menu.where(:location_id => 1).first.menu_items.order(order: :asc).each do |menu| %>
             <li><%= nav_link menu.title, menu.link %></li>
           <% end %>
           <!-- <li class="dropdown">
