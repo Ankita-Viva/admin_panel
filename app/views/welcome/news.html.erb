@@ -1,140 +1,132 @@
 <body>
 
-    <section class="title">
-        <div class="container">
-            <div class="row-fluid">
-                <div class="span6">
-                    <h1>News</h1>
-                </div>
-                <div class="span6">
-                    <ul class="breadcrumb pull-right">
-                        <li><a href="/">Home</a> <span class="divider">/</span></li>
-                        <li class="active">News</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- / .title -->         
+	<section class="title">
+		<div class="container">
+			<div class="row-fluid">
+				<div class="span6">
+					<h1>News</h1>
+				</div>
+				<div class="span6">
+					<ul class="breadcrumb pull-right">
+						<li><a href="/">Home</a> <span class="divider">/</span></li>
+						<li class="active">News</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- / .title -->         
 
-    <section id="about-us" class="container main">
-        <div class="row-fluid">
-            <div class="span8">
-                <div class="blog">
+	<section id="about-us" class="container main">
+		<div class="row-fluid">
+			<div class="span8">
+				<div class="blog">
 
-                  <% @news.each do |n| %>
+				  <% @news.each do |n| %>
 
-                    <div class="blog-item well">
-                        <h2><%= link_to n.title, news_with_title_path(n) %></h2>
-                        <!-- <a href="#"><h2><%= n.title %></h2></a> -->
-                        <div class="blog-meta clearfix">
-                            <p class="pull-left">
-                              <i class="icon-user"></i> by <a href="#"><%= AdminUser.find(n.admin_user_id).email%></a><!--  <i class="icon-folder-close"> </i> <%#= n.news_categories.each do |cat| %> <a href="#"><%#= cat.title %></a> --> | <%# end %> <i class="icon-calendar"> </i> <%= n.created_at.strftime("%b %dth, %Y") %>
-                          </p>
-                         <!--  <p class="pull-right"><i class="icon-comment pull"></i> <a href="blog-item.html#comments">3 Comments</a></p> -->
-                      </div>
-                      <p>
-                        <% if n.image.present? %>
-                          <%= image_tag(n.image, :width => "100%", :height => "auto") %>
-                        <% end %>
-                        
-                      </p>
-                      
-                      <p>
-                        <% if n.excerpt.present? %>
-                            <%= n.excerpt.html_safe %>
-                        <% end %>
-                      </p>
-                      <%= link_to 'Read More', news_with_title_path(n) %>
-                      <%#= link_to 'Read More', welcome_news_item_path(n.id) %> <i class="icon-angle-right"></i>
-                      <!-- <a class="btn btn-link" href="#">Read More</a> -->
-                  </div>
-                  <% end %>
-                  <%= will_paginate @news %>
-                  <!-- End Blog Item -->
-              <div class="gap"></div>
+					<div class="blog-item well">
+						<h2><%= link_to n.title, news_with_title_path(n) %></h2>
+						<!-- <a href="#"><h2><%= n.title %></h2></a> -->
+						<div class="blog-meta clearfix">
+							<p class="pull-left">
+							  <i class="icon-user"></i> by <a href="#"><%= AdminUser.find(n.admin_user_id).email%></a><!--  <i class="icon-folder-close"> </i> <%#= n.news_categories.each do |cat| %> <a href="#"><%#= cat.title %></a> --> | <%# end %> <i class="icon-calendar"> </i> <%= n.created_at.strftime("%b %dth, %Y") %>
+						  </p>
+						 <!--  <p class="pull-right"><i class="icon-comment pull"></i> <a href="blog-item.html#comments">3 Comments</a></p> -->
+					  </div>
+					  <p>
+						<% if n.image.present? %>
+						  <%= image_tag(n.image, :width => "100%", :height => "auto") %>
+						<% end %>
+						
+					  </p>
+					  
+					  <p>
+						<% if n.excerpt.present? %>
+							<%= n.excerpt.html_safe %>
+						<% end %>
+					  </p>
+					  <%= link_to 'Read More', news_with_title_path(n) %>
+					  <%#= link_to 'Read More', welcome_news_item_path(n.id) %> <i class="icon-angle-right"></i>
+					  <!-- <a class="btn btn-link" href="#">Read More</a> -->
+				  </div>
+				  <% end %>
+				  <%= will_paginate @news %>
+				  <!-- End Blog Item -->
+			  <div class="gap"></div>
 
-              <!-- Paginationa -->
-              <!-- <div class="pagination">
-                <ul>
-                    <li><a href="#"><i class="icon-angle-left"></i></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#"><i class="icon-angle-right"></i></a></li>
-                </ul>
-            </div> -->
+			  <!-- Paginationa -->
+			  <!-- <div class="pagination">
+				<ul>
+					<li><a href="#"><i class="icon-angle-left"></i></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"><i class="icon-angle-right"></i></a></li>
+				</ul>
+			</div> -->
 
 
-        </div>
-    </div>
-    <aside class="span4">
-        <div class="widget search">
-            <form>
-                <input type="text" class="input-block-level" placeholder="Search">
-            </form>
-        </div>
-        <!-- /.search -->
+		</div>
+	</div>
+	<aside class="span4">
+		<div class="widget search">
+			<form>
+				<input type="text" class="input-block-level" placeholder="Search">
+			</form>
+		</div>
+		<!-- /.search -->
 
-        <!-- <div class="widget ads">
-            <div class="row-fluid">
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad1.png" alt=""></a>
-                </div>
+		<!-- <div class="widget ads">
+			<div class="row-fluid">
+				<div class="span6">
+					<a href="#"><img src="images/ads/ad1.png" alt=""></a>
+				</div>
 
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad2.png" alt=""></a>
-                </div>
-            </div>
-            <p> </p>
-            <div class="row-fluid">
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad3.png" alt=""></a>
-                </div>
+				<div class="span6">
+					<a href="#"><img src="images/ads/ad2.png" alt=""></a>
+				</div>
+			</div>
+			<p> </p>
+			<div class="row-fluid">
+				<div class="span6">
+					<a href="#"><img src="images/ads/ad3.png" alt=""></a>
+				</div>
 
-                <div class="span6">
-                    <a href="#"><img src="images/ads/ad4.png" alt=""></a>
-                </div>
-            </div>
-        </div> -->
-        <!-- /.ads -->
+				<div class="span6">
+					<a href="#"><img src="images/ads/ad4.png" alt=""></a>
+				</div>
+			</div>
+		</div> -->
+		<!-- /.ads -->
 
-        <%= render "layouts/popularposts" %>
-        <!-- End Popular Posts -->        
+		<%= render "layouts/popularposts" %>
+		<!-- End Popular Posts -->        
 
-        <%= render "layouts/blogcategories" %>
-        <!-- End Category Widget -->
+		<%= render "layouts/blogcategories" %>
+		<!-- End Category Widget -->
 
-        <div class="widget">
-            <% @menus = Menu.where(:location_id => 3).first %>
+		<div class="widget">
+			<% @menus = Menu.where(:location_id => 3).first %>
 						<h3><%= @menus.title %></h3>
 
 						
 					  <div>
-					      
-					      <ul class="arrow">
-					        <% @menus.menu_items.order(order: :asc).each do |menu| %>
-					          <%= nav_link menu.title, menu.link %>
-					        <% end %>
-					      </ul>
+						  
+						  <ul class="arrow">
+							<% @menus.menu_items.order(order: :asc).each do |menu| %>
+							  <%= nav_link menu.title, menu.link %>
+							<% end %>
+						  </ul>
 					  </div>
-        </div> 
-        <!-- End Tag Cloud Widget -->
+		</div> 
+		<!-- End Tag Cloud Widget -->
 
-        <div class="widget">
-            <h3>Archive</h3>
-            <ul class="archive arrow">
-                <li><a href="#">May 2013</a></li>
-                <li><a href="#">April 2013</a></li>
-                <li><a href="#">March 2013</a></li>
-                <li><a href="#">February 2013</a></li>
-            </ul>
-        </div> 
-        <!-- End Archive Widget -->   
 
-    </aside>
+		<!-- End Archive Widget -->   
+
+	</aside>
 </div>
 
 </section>

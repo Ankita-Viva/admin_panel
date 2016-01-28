@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
   end
 
   def blogs
-  	@blogs = Blog.where(:published => true).paginate(:page => params[:page],:per_page => 2 ).order(created_at: :desc)
+  	@blogs = Blog.where(:published => true).paginate(:page => params[:page],:per_page => 5 ).order(created_at: :desc)
     # @posts = Blog.where(:published => true).order(created_at: :desc)
     # @posts = Blog.where(:published => true).last(3)
   end
@@ -23,7 +23,7 @@ class WelcomeController < ApplicationController
   end
 
   def news
-    @news = News.where(:published => true).paginate(:page => params[:page], :per_page => 2 ).order(created_at: :desc)
+    @news = News.where(:published => true).paginate(:page => params[:page], :per_page => 5 ).order(created_at: :desc)
   end
 
   def news_item
@@ -35,7 +35,7 @@ class WelcomeController < ApplicationController
   end
 
   def blog_categories
-    @category_posts = Category.friendly.find(params[:id])#.paginate(:page => params[:page],:per_page => 2 )
+    @category_posts = Category.friendly.find(params[:id])#.paginate(:page => params[:page],:per_page => 5 )
   end
 
 end
