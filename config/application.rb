@@ -25,6 +25,7 @@ module SampleApp
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w( ckeditor/* )
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 end
