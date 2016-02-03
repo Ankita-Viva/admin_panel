@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   get 'welcome/index'
-  get 'welcome/blogs'
+  # get 'welcome/blogs'
   # get 'welcome/blog_item'
   match '/blogs/:id' => 'welcome#blog_item', :as => :blog_with_title, via: :get
   match '/news/:id' => 'welcome#news_item', :as => :news_with_title, via: :get  
-  get 'welcome/news'
+  # get 'welcome/news'
   get 'welcome/news_item'
   get 'welcome/page'
+  match '/blogs' => 'welcome#blogs', via: :get 
+  match '/news' => 'welcome#news', via: :get
   match '/pages/:id' => 'welcome#page', :as => :page_with_title, via: :get  
   match 'blogs/category/:id' => 'welcome#blog_categories', :as => :particular_category_blogs, via: :get
   
