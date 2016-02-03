@@ -27,5 +27,7 @@ module SampleApp
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     # config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')  
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end
